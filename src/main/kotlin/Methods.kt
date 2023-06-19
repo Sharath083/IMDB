@@ -51,12 +51,25 @@ class Methods {
         println(ratingList)
     }
     fun  viewMovies(){
-        println(movieList)
+        movieList.forEach { println(it) }
     }
     fun removeMovie(input: String){
 
         println( "Status : ${movieList.removeIf { it.title.equals(input,true) }}")
 
     }
+    fun sortBy(input: String){
+
+        when(input.lowercase()){
+            "title"->movieList.sortBy{ it.title }
+            "year"->movieList.sortBy { it.year }
+            "director"->movieList.sortBy { it.director }
+            "language"->movieList.sortBy { it.language }
+            "rating"->movieList.sortBy { it.rating }
+            else->println("Enter valid sort Element")
+        }
+//        println(movieList)
+    }
+
 
 }
