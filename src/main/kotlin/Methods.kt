@@ -17,11 +17,11 @@ class Methods {
         movieList.add(Details("Snyder","SuperMan",2013,4.2,"Telugu"))
         movieList.add(Details("James","Avatar",2010,4.9,"English"))
         movieList.add(Details("Chris","Interstellar",2014,4.6,"English"))
+
     }
 
     fun addMovies(){
 
-//        var again:Int
         do{
             println("Enter Director name")
             val director= readln()
@@ -36,7 +36,6 @@ class Methods {
             val language=readln()
             movieList.add(Details(director,movie,year,rating, language))
             println("y-->Add again  n--> Exit")
-//        repeat=reader.nextLine()
         }while (readln().equals("y",true))
 
     }
@@ -84,11 +83,7 @@ class Methods {
             println("Enter Movie Name")
             val input= readln()
             val movieDetails=movieDetails(input)
-
-
             try {
-
-
                 if ( movieDetails.isNotEmpty()) {
                     println("Enter Movie List name")
                     val favouriteListName= readln()
@@ -131,6 +126,21 @@ class Methods {
         favouriteList.removeIf { it.title.equals(input,true) && it.playListName == listName }
 
     }
+    private fun authenticationUser(name: String,password:String):Boolean{
+        return password.length>8 && !(password.contains(' ')) && name.length>4
+
+    }
+    fun loginUser(name:String,pass:String):Boolean{
+
+       return authenticationUser(name,pass)
+    }
+    private fun authenticationAdministrator(name: String,password: String):Boolean{
+        return name == "admin" && password == "1111"
+    }
+    fun  loginAdministrator(name: String,password: String):Boolean{
+        return authenticationAdministrator(name, password)
+    }
+
 }
 
 
