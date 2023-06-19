@@ -8,7 +8,15 @@ fun main() {
 //    var repeat:String
 
     do{
-        println("1-->Add New Movie  2--> Search 3--> searchByRating 4-->View Movie List 5--> Remove Movie 6--> Sort By ")
+        println(" 1-->Add New Movie \n" +
+                " 2--> Search \n" +
+                " 3--> searchByRating \n" +
+                " 4-->View Movie List \n" +
+                " 5--> Remove Movie  \n" +
+                " 6--> Sort By  \n"+
+                " 7--> Add to Favourites  \n"+
+                " 8--> view Playlist  \n"+
+                " 9-->Remove From Favourite List ")
         when(readln().toInt()){
             1 -> obj.addMovies()
 
@@ -33,7 +41,15 @@ fun main() {
                 println("Movie List :")
                 obj.viewMovies()
             }
-
+            7->obj.favouriteMovies()
+            8->{
+                println("Enter Name of Playlist To See or Type All to See Whole List")
+                obj.viewFavouriteList(readln())
+            }
+            9->{
+                println("Enter Movie Name and Favourite List to remove")
+                obj.removeFromFavouriteList(readln(), readln())
+            }
             else->
                 println("Enter valid Input")
 
